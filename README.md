@@ -1,6 +1,6 @@
 # Cloudrunner
 
-Currently serving at: 193.196.37.183:8080
+Currently served at: http://193.196.37.183:8080
 
 Computes deterministic samples on request.
 
