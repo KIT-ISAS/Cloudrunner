@@ -25,7 +25,7 @@ Usage:
 
 ![plot](media/glcdhq.png)
 
-Usage (Requests take a few seconds!):
+Usage ( **SLOW** | Requests take a few seconds! ):
 
 - <http://193.196.37.183:8080/?M=sample_LCD_Gauss_2D&C=[1,0;0,.25]&L=5>
 - <http://193.196.37.183:8080/?M=sample_LCD_Gauss_2D&C=[1,0;0,.1]&L=10>

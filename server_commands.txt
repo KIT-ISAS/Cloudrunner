@@ -33,10 +33,10 @@ git pull
 # Install & Compile
 cp juliapkg.json .venv/julia_env/pyjuliapkg/
 python runner.py
-gunicorn --workers=1 --bind 0.0.0.0:8080 runner:app_julia
+gunicorn --workers=1 --bind 0.0.0.0:8080 --timeout 500 runner:app_julia
 
 # Deploy
-gunicorn --workers=2 --bind 0.0.0.0:8080 runner:app_julia --daemon
+gunicorn --workers=5 --bind 0.0.0.0:8080 --timeout 500 runner:app_julia --daemon
 
 # Test in Browser
 193.196.37.183:8080/?M=add&a=2.5&b=1.4
