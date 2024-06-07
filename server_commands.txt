@@ -23,17 +23,18 @@ gunicorn --workers=2 --bind localhost:8080 runner:app_julia
 localhost:8080/?M=add&a=2.5&b=1.4
 
 # Terminate old process
-ps
-pkill -9 python
-pkill -9 julia
+pkill gunicorn
 
 # Update code from GitHub
 ssh isas-cloudrunner
 cd ./Cloudrunner
 git pull
 
+# Install & Compile
+gunicorn --workers=1 --bind localhost:8080 runner:app_julia
+
 # Deploy
-gunicorn --workers=2 --bind localhost:8080 runner:app_julia
+gunicorn --workers=2 --bind localhost:8080 runner:app_julia --daemon
 
 # Test in Browser
 193.196.37.183:8080/?M=add&a=2.5&b=1.4
