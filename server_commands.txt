@@ -1,0 +1,42 @@
+
+# Create server
+https://portal.bw-cloud.org/project/instances/
+https://www.bw-cloud.org/de/bwcloud_scope/nutzen
+
+# Log in
+ssh isas-cloudrunner
+
+# Install
+sudo apt update
+sudo apt install git
+sudo apt install virtualenv
+
+rm ./Cloudrunner
+git clone https://github.com/KIT-ISAS/Cloudrunner.git
+cd ./Cloudrunner
+virtualenv .venv
+source .venv/bin/activate
+pip install -r requirements.txt
+
+# Test locally
+gunicorn --workers=2 --bind localhost:8080 runner:app_julia
+localhost:8080/?M=add&a=2.5&b=1.4
+
+# Terminate old process
+ps
+pkill -9 python
+pkill -9 julia
+
+# Update code from GitHub
+ssh isas-cloudrunner
+cd ./Cloudrunner
+git pull
+
+# Deploy
+gunicorn --workers=2 --bind localhost:8080 runner:app_julia
+
+# Test in Browser
+193.196.37.183:8080/?M=add&a=2.5&b=1.4
+
+# TODO: nginx reverse proxy
+

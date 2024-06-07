@@ -1,0 +1,6 @@
+gunicorn==22.0.0
+juliacall==0.9.20
+juliapkg==0.1.13
+numpy==1.26.4
+packaging==24.0
+semver==3.0.2
